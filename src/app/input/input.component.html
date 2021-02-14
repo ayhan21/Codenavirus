@@ -1,0 +1,64 @@
+<div class="container">
+        <div class="row col-md-4">
+            <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+                <div class="form-group">
+                    
+                    <label>X</label>
+                    <input 
+                        type="number"
+                        class="form-control" 
+                        ngModel
+                        name="xMatrix" 
+                        required
+                        number
+                        min=1>
+                    <label>Y</label>
+                    <input 
+                        type="number" 
+                        class="form-control" 
+                        ngModel
+                        name="yMatrix" 
+                        required
+                        number
+                        min=1>
+                    <!--<label>Input</label>
+                        <input 
+                        type="text" 
+                        class="form-control" 
+                        ngModel
+                        name="textInput" 
+                        required
+                        pattern="[#/.]+">-->
+                </div>
+                <div class="form-group">
+                    <label>First Infected X</label>
+                    <input 
+                        type="number" 
+                        class="form-control" 
+                        ngModel
+                        name="xFI" 
+                        required
+                        number
+                        min=0>
+                    <label>First Infected Y</label>
+                    <input 
+                        type="number" 
+                        class="form-control"
+                        ngModel
+                        name="yFI" 
+                        required
+                        number
+                        min=0>
+                </div>
+                <div>
+                    <button 
+                        class="btn btn-primary" 
+                        type="submit"
+                        [disabled]="!f.valid">Start</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-5">
+            <app-statistics></app-statistics>
+        </div>
+</div>

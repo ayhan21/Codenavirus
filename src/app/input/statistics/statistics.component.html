@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="col-md-6">
+    <div class="col-md">
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+            <div class="form-group">
+                    <label>Simulation ID</label>
+                    <input 
+                        type="number"
+                        class="form-control" 
+                        placeholder="{{id}}"
+                        ngModel
+                        name="id" 
+                        required
+                        number
+                        min=1>
+                    <button 
+                        class="btn btn-primary"
+                        type="submit"
+                        [disabled]="!f.valid">Search</button>
+            </div>
+        </form>
+    </div>
+    
+        <table class="table table-striped table-hover table-bordered">
+            <thead>
+                <tr>
+                <th scope="col">Day</th>
+                <th scope="col">Infected</th>
+                <th scope="col">Recovered</th>
+                <th scope="col">Healthy</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let stat of stats">
+                    <td>{{stat.Day}}</td>
+                    <td>{{stat.InfectedCount}}</td>
+                    <td>{{stat.RecoveredCount}}</td>
+                    <td>{{stat.HealthyCount}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
